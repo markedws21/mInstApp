@@ -24,18 +24,20 @@ class LoginPage extends StatelessWidget {
                 const Icon(
                   Icons.library_add, 
                   size: 150, 
-                  color: Colors.greenAccent,),
+                  color:  Color(0xFF023657),),
                 const Text("mInst",
                   style: TextStyle(
                     fontSize: 70,
-                    color: Colors.blueAccent,
+                    color: Color(0xFF023657),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text("Bienvenido",
+                const Text("Iniciar Sesion",
                   style: TextStyle(
                     fontSize: 30,
-                    color: Colors.blueAccent,
+                    color: Color(0xFF023657),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -100,14 +102,15 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: const Color(0xFF023657),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Center(
-                    child: Text("Iniciar Sesion",
+                    child: Text("Ingresar",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                     ),
                   ),
@@ -116,27 +119,18 @@ class LoginPage extends StatelessWidget {
                 ),
                 //
                 const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("¿No tienes cuenta?",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    InkWell(
+                InkWell(
                       onTap: () {
                         //Navigator.pushNamed(context, ROUTE_REGISTRO);
                       },
-                      child: const Text("Registrate",
+                      child: const Text("Olvidaste tu contraseña?",
                        style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blueAccent
+                        color:  Color(0xFF023657),
+                        decoration: TextDecoration.underline,
                       ),),
                     ),
-                  ],
-                )
+
               ],
             ),
           )
