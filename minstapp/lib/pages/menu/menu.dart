@@ -21,11 +21,8 @@ class MenuPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  width: 100,
-                  height: 100,
-                  margin: const EdgeInsets.only(top: 20,bottom: 20),
-                  ),
-                  Row(
+                  margin: const EdgeInsets.only(top: 50,bottom: 10,left: 20,right: 20),
+                  child:Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Column(
@@ -38,12 +35,15 @@ class MenuPage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("BIENVENIDO MARK",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color:  Colors.white),),
-                          Text("espinozarojasmark@gmail.com",style: GoogleFonts.poppins(fontSize: 10,color: Colors.white,),),
+                          const Text("BIENVENIDO MARK",style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color:  Colors.white),),
+                          Text("espinozarojasmark@gmail.com",style: GoogleFonts.poppins(fontSize: 12,color: Colors.white,),),
                         ]
                       ),
                     ],
                   ),
+                  ),
+
+                //INICIO
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, ROUTE_LOGIN);
@@ -52,7 +52,7 @@ class MenuPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
-                        color: Colors.black,
+                        color: Colors.transparent,
                       ),
                     borderRadius: BorderRadius.circular(10),
                     ),
@@ -77,23 +77,23 @@ class MenuPage extends StatelessWidget {
                   ),
                 ),
                 ),
-
+                //PUNTOS
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(context, ROUTE_LOGIN);
                   },
                   child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.black,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.transparent,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  margin: const EdgeInsets.only(top: 10, bottom: 10, right: 15, left: 15),
-                  padding: const EdgeInsets.all(20),
-                  width: double.infinity,
-                  child: const Row(
+                    margin: const EdgeInsets.only(top: 10, bottom: 10, right: 15, left: 15),
+                    padding: const EdgeInsets.all(20),
+                    width: double.infinity,
+                    child: const Row(
                     children: [
                       Icon(
                         Icons.star, // Icono

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:minstapp/pages/SplashScreen.dart';
+import 'package:minstapp/pages/login/authApp.dart';
 import 'package:minstapp/pages/login/loginApp.dart';
 import 'package:minstapp/pages/menu/menu.dart';
 
@@ -9,6 +10,8 @@ import 'package:minstapp/pages/menu/menu.dart';
 const String ROUTE_PREVIEW = '/preview';
 // ignore: constant_identifier_names
 const String ROUTE_LOGIN = '/login';
+// ignore: constant_identifier_names
+const String ROUTE_AUTH = '/auth';
 // ignore: constant_identifier_names
 const String ROUTE_MENU = '/menu';
 
@@ -19,6 +22,8 @@ class MyRouters {
         return MaterialPageRoute(builder: (_)=>const SplashScreen());
       case "/login":
         return MaterialPageRoute(builder: (_)=>const LoginPage());
+      case "/auth":
+        return MaterialPageRoute(builder: (_)=>const AuthPage());
       case "/menu":
         return MaterialPageRoute(builder: (_)=> MenuPage());
       default:

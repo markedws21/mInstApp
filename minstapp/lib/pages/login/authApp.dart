@@ -1,14 +1,17 @@
 // ignore_for_file: file_names
+
+//import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minstapp/Common/MyRouters.dart';
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
 
+class AuthPage extends StatelessWidget {
+  const AuthPage({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+       resizeToAvoidBottomInset: false,
       body: Container(
         decoration:  BoxDecoration(
           image: DecorationImage(
@@ -40,7 +43,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Text("INICIAR SESION",
+                Text("RECUPERAR CONTRASEÑA",
                   style: GoogleFonts.poppins(
                     fontSize: 25,
                     color: Colors.white,
@@ -72,7 +75,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 //
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 //TEXTBOX CONTRASEÑA
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -90,7 +93,31 @@ class LoginPage extends StatelessWidget {
                     obscureText: true,
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Contraseña",
+                        hintText: "Nueva Contraseña",
+                      ),
+                    )
+                   )
+                  ),
+                ),
+                // CAMBIAR CONTRASEÑA
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      //border: Border.all(
+                      //  color: Colors.black,
+                      //),
+                    borderRadius: BorderRadius.circular(15),
+                    ),
+                  child: const Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child:  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Confirmar Contraseña",
                       ),
                     )
                    )
@@ -101,7 +128,7 @@ class LoginPage extends StatelessWidget {
                 //BOTON
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, ROUTE_MENU);
+                   Navigator.pushNamed(context, ROUTE_LOGIN);
                   },
                   child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -114,7 +141,7 @@ class LoginPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Center(
-                    child: Text("Ingresar",
+                    child: Text("Cambiar Contraseña",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -125,36 +152,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   ),
                 ),
-                //
-                const SizedBox(height: 20),
-                InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ROUTE_AUTH);
-                      },
-                  child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0,top: 10.0, bottom: 10.0),
-                    decoration: BoxDecoration(
-                    //color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Center(
-                    child: Text("Olvidaste tu contraseña?",
-                    style: TextStyle(
-                      //color: Color(0xFF023657),
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    ),
-                  ),
-                  ),
-                  ),
-                    ),
-
                 ],
               ),
             )
