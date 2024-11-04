@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minstapp/Common/MyRouters.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -8,35 +9,41 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: <Color>[
-              Colors.white,
-              Colors.white,
-            ],
-            )
-      ),
-      child: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Icon(
+        decoration:  BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage("assets/images/fond.jpg"), // URL de la imagen
+            fit: BoxFit.cover, // Ajusta la imagen al tamaño del contenedor
+            colorFilter: ColorFilter.mode(
+              Colors.blue.withOpacity(0.8), // Aumenta la opacidad para hacer la imagen menos visible
+              BlendMode.darken, // O usa BlendMode.overlay para un efecto más sutil
+            ),
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Icon(
                   Icons.library_add, 
-                  size: 150, 
-                  color:  Color(0xFF023657),),
-                const Text("mInst",
-                  style: TextStyle(
+                  size: 150,
+                  color: Colors.white,
+                  //color:  Color(0xFF023657),
+                  ),
+                  Text("mInst",
+                  style: GoogleFonts.poppins(
                     fontSize: 70,
-                    color: Color(0xFF023657),
+                    color: Colors.white,
+                    //color: const Color(0xFF023657),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text("Iniciar Sesion",
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Color(0xFF023657),
+                Text("INICIAR SESION",
+                  style: GoogleFonts.poppins(
+                    fontSize: 25,
+                    color: Colors.white,
+                    //color: const Color(0xFF023657),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -47,9 +54,9 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(
-                        color: Colors.black,
-                      ),
+                      //border: Border.all(
+                      //  color: Colors.black,
+                      //),
                     borderRadius: BorderRadius.circular(15),
                     ),
                   child: const Padding(
@@ -71,9 +78,9 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(
-                        color: Colors.black,
-                      ),
+                      //border: Border.all(
+                      //  color: Colors.black,
+                      //),
                     borderRadius: BorderRadius.circular(15),
                     ),
                   child: const Padding(
@@ -100,7 +107,7 @@ class LoginPage extends StatelessWidget {
                     horizontal: 20.0
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0,top: 15.0, bottom: 15.0),
                     decoration: BoxDecoration(
                     color: const Color(0xFF023657),
                     borderRadius: BorderRadius.circular(12),
@@ -123,19 +130,35 @@ class LoginPage extends StatelessWidget {
                       onTap: () {
                         //Navigator.pushNamed(context, ROUTE_REGISTRO);
                       },
-                      child: const Text("Olvidaste tu contraseña?",
-                       style: TextStyle(
-                        fontSize: 20,
-                        color:  Color(0xFF023657),
-                        decoration: TextDecoration.underline,
-                      ),),
+                  child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0,top: 10.0, bottom: 10.0),
+                    decoration: BoxDecoration(
+                    //color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Center(
+                    child: Text("Olvidaste tu contraseña?",
+                    style: TextStyle(
+                      //color: Color(0xFF023657),
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
+                  ),
+                  ),
+                  ),
                     ),
 
-              ],
-            ),
-          )
+                ],
+              ),
+            )
+          ),
         ),
-      ),
     ));
   }
 }

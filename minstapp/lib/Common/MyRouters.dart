@@ -20,7 +20,7 @@ class MyRouters {
       case "/login":
         return MaterialPageRoute(builder: (_)=>const LoginPage());
       case "/menu":
-        return MaterialPageRoute(builder: (_)=>const MenuPage());
+        return MaterialPageRoute(builder: (_)=> MenuPage());
       default:
         return MaterialPageRoute(builder: (_)=>const SplashScreen());
     }
