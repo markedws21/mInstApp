@@ -7,7 +7,13 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+
+    child:  Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
         decoration:  BoxDecoration(
@@ -40,7 +46,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Text("INICIAR SESION",
+                Text("Iniciar Sesión",
                   style: GoogleFonts.poppins(
                     fontSize: 25,
                     color: Colors.white,
@@ -126,40 +132,33 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 //
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ROUTE_AUTH);
-                      },
+                  onTap: () {
+                    Navigator.pushNamed(context, ROUTE_AUTH);
+                  },
                   child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0,top: 10.0, bottom: 10.0),
-                    decoration: BoxDecoration(
-                    //color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Center(
+                    padding:  const EdgeInsets.symmetric(
+                      horizontal: 20.0
+                    ),
                     child: Text("Olvidaste tu contraseña?",
-                    style: TextStyle(
-                      //color: Color(0xFF023657),
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        style: GoogleFonts.poppins(
+                          //color: Color(0xFF023657),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                     ),
                   ),
-                  ),
-                  ),
-                    ),
+                ),
 
-                ],
-              ),
-            )
+              ],
+                ),
+              )
+            ),
           ),
-        ),
-    ));
+        )
+      )
+    );
   }
 }

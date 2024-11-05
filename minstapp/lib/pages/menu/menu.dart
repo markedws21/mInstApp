@@ -133,7 +133,7 @@ class MenuPage extends StatelessWidget {
             },
           ),
         ),
-        body: SingleChildScrollView(
+        body: SizedBox (
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -239,7 +239,7 @@ class MenuPage extends StatelessWidget {
               ),
             ),
             // NOTICIAS
-                Padding(
+              Padding(
                 padding: const EdgeInsets.only(top: 16,bottom: 10,right: 16,left: 16),
                 child: Text("NOTICIAS",
                 style: GoogleFonts.poppins(
@@ -247,10 +247,10 @@ class MenuPage extends StatelessWidget {
                   fontSize: 20, fontWeight: FontWeight.bold
                   ),
                 ),
-              ),
-               Padding(
-                padding: const EdgeInsets.only(top: 6,bottom: 10,right: 16,left: 16),
-                child: CarouselSlider(
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6,bottom: 10,right: 16,left: 16),
+                  child: CarouselSlider(
                   items: images.map((e)=> SizedBox(
                     child: Center(
                       child: Image.asset(e,fit: BoxFit.cover,width: double.infinity,),
@@ -272,6 +272,26 @@ class MenuPage extends StatelessWidget {
                   ),
 
                 ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 10, right: 16, left: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context, 
+                          ROUTE_LOGIN, 
+                          (Route<dynamic> route) => false,
+                        );
+                      },
+                      backgroundColor: const Color(0xFF023657),
+                      elevation: 20,
+                      child: const Icon(Icons.message, color: Colors.white, size: 30),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         )

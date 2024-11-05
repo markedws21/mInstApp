@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 //import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minstapp/Common/MyRouters.dart';
@@ -10,15 +11,20 @@ class AuthPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
        resizeToAvoidBottomInset: false,
-      body: Container(
+        body: Container(
         decoration:  BoxDecoration(
           image: DecorationImage(
             image: const AssetImage("assets/images/fond.jpg"), // URL de la imagen
-            fit: BoxFit.cover, // Ajusta la imagen al tamaño del contenedor
+            fit: BoxFit.cover,                                // Ajusta la imagen al tamaño del contenedor   
             colorFilter: ColorFilter.mode(
-              const Color(0xFF023657).withOpacity(0.8), // Aumenta la opacidad para hacer la imagen menos visible
+              const Color(0xFF023657).withOpacity(0.8),   // Aumenta la opacidad para hacer la imagen menos visible
               BlendMode.darken, // O usa BlendMode.overlay para un efecto más sutil
             ),
           ),
@@ -43,7 +49,7 @@ class AuthPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Text("RECUPERAR CONTRASEÑA",
+                Text("Recuperar Contraseña",
                   style: GoogleFonts.poppins(
                     fontSize: 25,
                     color: Colors.white,
@@ -123,12 +129,12 @@ class AuthPage extends StatelessWidget {
                    )
                   ),
                 ),
-                //
-                const SizedBox(height: 20),
                 //BOTON
+                const SizedBox(height: 20),
                 InkWell(
                   onTap: () {
-                   Navigator.pushNamed(context, ROUTE_LOGIN);
+                    showConfirmationDialog(context);
+                   //Navigator.pushNamed(context, ROUTE_LOGIN);
                   },
                   child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -157,6 +163,34 @@ class AuthPage extends StatelessWidget {
             )
           ),
         ),
-    ));
+      )
+    )
+    );
+  }
+  
+  void showConfirmationDialog(BuildContext context) {
+    showDialog(
+    context: context,
+    barrierDismissible : false,
+    builder: (BuildContext context) {
+      return CupertinoAlertDialog(
+        title: const Text("Confirmación"),
+        content: const Text("La contraseña ha sido cambiada exitosamente."),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Cerrar el diálogo
+              Navigator.pushNamedAndRemoveUntil(
+                context, 
+                ROUTE_LOGIN, 
+                (Route<dynamic> route) => false,
+              ); // Redirigir al login
+            },
+            child: const Text("Ir a Login"),
+          ),
+        ],
+      );
+    },
+  );
   }
 }
