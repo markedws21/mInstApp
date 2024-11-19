@@ -1,7 +1,10 @@
 // ignore_for_file: file_names
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minstapp/Common/MyRouters.dart';
+//import 'package:minstapp/Common/MyRouters.dart';
+import 'package:minstapp/pages/login/authApp.dart';
+import 'package:minstapp/pages/menu/menu.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -21,7 +24,7 @@ class LoginPage extends StatelessWidget {
             image: const AssetImage("assets/images/fond.jpg"), // URL de la imagen
             fit: BoxFit.cover, // Ajusta la imagen al tamaño del contenedor
             colorFilter: ColorFilter.mode(
-              const Color(0xFF023657).withOpacity(0.8), // Aumenta la opacidad para hacer la imagen menos visible
+              const Color(0xFF023657).withOpacity(0.9), // Aumenta la opacidad para hacer la imagen menos visible
               BlendMode.darken, // O usa BlendMode.overlay para un efecto más sutil
             ),
           ),
@@ -32,7 +35,7 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   const Icon(
-                  Icons.library_add, 
+                  Icons.library_books, 
                   size: 150,
                   color: Colors.white,
                   //color:  Color(0xFF023657),
@@ -64,7 +67,7 @@ class LoginPage extends StatelessWidget {
                       //border: Border.all(
                       //  color: Colors.black,
                       //),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(12),
                     ),
                   child: const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
@@ -78,7 +81,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 //
-                const SizedBox(height: 30),
+                const SizedBox(height: 15),
                 //TEXTBOX CONTRASEÑA
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -88,7 +91,7 @@ class LoginPage extends StatelessWidget {
                       //border: Border.all(
                       //  color: Colors.black,
                       //),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(12),
                     ),
                   child: const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
@@ -105,37 +108,50 @@ class LoginPage extends StatelessWidget {
                 //
                 const SizedBox(height: 20),
                 //BOTON
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, ROUTE_MENU);
-                  },
-                  child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0,top: 15.0, bottom: 15.0),
-                    decoration: BoxDecoration(
-                    color: const Color(0xFF023657),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Center(
-                    child: Text("Ingresar",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: SizedBox(
+                  width: double.infinity, // Establece el ancho deseado aquí
+                  child: ElevatedButton(
+                    onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => MenuPage(), // La página de destino
+                          ),
+                        );
+                        // Aquí puedes agregar más lógica después de la navegación, si es necesario.
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF023657),
+                      padding: const EdgeInsets.symmetric(vertical: 15.0), // Padding vertical
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      elevation: 5,
                     ),
+                    child: const Text(
+                      "Ingresar",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                       ),
+                      ),
                     ),
-                  ),
-                  ),
                   ),
                 ),
                 //
                 const SizedBox(height: 15),
                 InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, ROUTE_AUTH);
+                  onTap: () async {
+                        await Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const AuthPage(), // La página de destino
+                          ),
+                        );
+                        // Aquí puedes agregar más lógica después de la navegación, si es necesario.
                   },
                   child: Padding(
                     padding:  const EdgeInsets.symmetric(
@@ -145,7 +161,7 @@ class LoginPage extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           //color: Color(0xFF023657),
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                     ),

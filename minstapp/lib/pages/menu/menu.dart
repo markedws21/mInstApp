@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minstapp/Common/MyRouters.dart';
+import 'package:minstapp/widgets/default/scaffold.dart';
 
 class MenuPage extends StatelessWidget {
   MenuPage({super.key});
@@ -14,126 +15,9 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        drawer: Drawer(
-          child: Container(
-            color: const Color(0xFF023657),
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 50,bottom: 10,left: 20,right: 20),
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(Icons.person,size: 50,color:  Colors.white,),
-                        ]
-                      ),
-                      const SizedBox(width: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("BIENVENIDO MARK",style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color:  Colors.white),),
-                          Text("espinozarojasmark@gmail.com",style: GoogleFonts.poppins(fontSize: 12,color: Colors.white,),),
-                        ]
-                      ),
-                    ],
-                  ),
-                  ),
-
-                //INICIO
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, ROUTE_LOGIN);
-                  },
-                  child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                    borderRadius: BorderRadius.circular(10),
-                    ),
-                  margin: const EdgeInsets.only(top: 30,bottom: 10,right: 15,left: 15),
-                  padding: const EdgeInsets.all(20),
-                  width: double.infinity,
-                  child: const Row(
-                    children: [
-                      Icon(
-                        Icons.home, // Icono
-                        color: Colors.black,
-                      ),
-                      SizedBox(width: 10), // Espacio entre el icono y el texto
-                      Text(
-                        "Inicio",
-                        style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                ),
-                //PUNTOS
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, ROUTE_LOGIN);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: const EdgeInsets.only(top: 10, bottom: 10, right: 15, left: 15),
-                    padding: const EdgeInsets.all(20),
-                    width: double.infinity,
-                    child: const Row(
-                    children: [
-                      Icon(
-                        Icons.star, // Icono
-                        color: Colors.black,
-                      ),
-                      SizedBox(width: 10), // Espacio entre el icono y el texto
-                      Text(
-                        "Puntos",
-                        style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ),
-        appBar: AppBar(
-          title: Text('INICIO',
-            style: GoogleFonts.poppins(fontSize: 20,
-            color: const Color(0xFF023657),
-            fontWeight: FontWeight.bold
-            ),),
-            backgroundColor: Colors.white,
-            leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.menu,color: Color(0xFF023657),size: 25,), // Cambia este icono por el que prefieras
-                  onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-        ),
-        body: SizedBox (
+      home: DefaultScaffold(
+        title: 'INICIO',
+        body: SingleChildScrollView (
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -270,7 +154,6 @@ class MenuPage extends StatelessWidget {
                     pageSnapping: true,
                   )
                   ),
-
                 ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 10, right: 16, left: 16),
@@ -299,28 +182,29 @@ class MenuPage extends StatelessWidget {
     );
   }
 }
-  Widget _buildAnnouncementCard(String text, Color color) {
-    return Container(
-      width: 120,
-      height: 70,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-            colors: <Color>[
+
+Widget _buildAnnouncementCard(String text, Color color) {
+  return Container(
+    width: 120,
+    height: 70,
+    padding: const EdgeInsets.all(20),
+    decoration: BoxDecoration(
+      gradient: const LinearGradient(
+        colors: <Color>[
               Color(0xFF02AAB0),
               Color(0xFF00CDAC),
             ],
-        ),
-        borderRadius: BorderRadius.circular(8),
       ),
-      child: Center(
-        child: Text(
-          text,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Center(
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
       ),
-    );
+    ),
+  );
 }
 
 

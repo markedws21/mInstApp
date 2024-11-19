@@ -1,6 +1,8 @@
 // ignore_for_file: file_names
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
 import 'package:minstapp/pages/login/loginApp.dart';
@@ -20,28 +22,29 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navega a la pantalla de login después de 3 segundos
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginPage()),
+        CupertinoPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xFF023657), // Cambia el color de fondo si lo deseas
+    return Scaffold(
+      backgroundColor: const Color(0xFF023657), // Cambia el color de fondo si lo deseas
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Muestra el logo
-            Icon(Icons.library_add, size: 100, color: Colors.white),
-            SizedBox(height: 10),
+            const Icon(Icons.library_books, size: 150, color: Colors.white),
+            const SizedBox(height: 10),
             // Texto opcional de bienvenida o nombre de la app
             Text(
               'mInst',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 70,
                 color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
