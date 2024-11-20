@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minstapp/pages/calendario/calendarPage.dart';
 import 'package:minstapp/pages/carnet/cardPhoto.dart';
+import 'package:minstapp/pages/horario/horarioPage.dart';
 import 'package:minstapp/pages/login/loginApp.dart';
 import 'package:minstapp/pages/menu/menu.dart';
 import 'package:minstapp/pages/notificaciones/Notificaciones.dart';
@@ -138,7 +140,7 @@ class _DrawerNavState extends State<DrawerNav> {
                       setState(() => _selectedIndex = 2);
                       Navigator.push(
                         context,
-                        CupertinoPageRoute(builder: (context) => const CardPhotoPage()),
+                        CupertinoPageRoute(builder: (context) => const HorarioPage()),
                       ); // Marca seleccionado
                     },
                   ),
@@ -164,8 +166,8 @@ class _DrawerNavState extends State<DrawerNav> {
                       setState(() => _selectedIndex = 4);
                       Navigator.push(
                         context,
-                        CupertinoPageRoute(builder: (context) => const CardPhotoPage()),
-                      ); // Marca seleccionado
+                        CupertinoPageRoute(builder: (context) => CalendarPage()),
+                      );
                     },
                   ),
                   _buildMenuItem(
@@ -178,7 +180,7 @@ class _DrawerNavState extends State<DrawerNav> {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(builder: (context) => const NotificacionesPage()),
-                      ); // Marca seleccionado
+                      );
                     },
                   ),
                   _buildMenuItem(

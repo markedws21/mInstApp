@@ -13,9 +13,9 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DefaultScaffold(
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: DefaultScaffold(
         title: 'INICIO',
         body: SingleChildScrollView (
           child: Column(
@@ -180,6 +180,10 @@ class MenuPage extends StatelessWidget {
         )
       ),
     );
+  }
+
+  Future<bool> _onWillPop() {
+    return Future.value(false);
   }
 }
 

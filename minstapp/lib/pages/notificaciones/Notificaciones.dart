@@ -10,9 +10,7 @@ class NotificacionesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
     return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
+      onWillPop: _onWillPop,
       child: DefaultScaffold(
         title: 'NOTIFICACIONES',
         body: SingleChildScrollView(
@@ -58,5 +56,8 @@ class NotificacionesPage extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<bool> _onWillPop() {
+    return Future.value(false);
   }
 }
