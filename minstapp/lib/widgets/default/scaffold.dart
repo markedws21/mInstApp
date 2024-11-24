@@ -25,7 +25,7 @@ class DefaultScaffold extends StatelessWidget {
         backgroundColor: const Color(0xFF023657),
         title: Text(title,
         style: titleTextStyle ?? GoogleFonts.poppins(
-          fontSize: 20,
+          fontSize: 16,
           color: Colors.white,
           fontWeight: FontWeight.bold
           ),

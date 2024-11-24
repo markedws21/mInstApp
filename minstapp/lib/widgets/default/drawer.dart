@@ -6,7 +6,8 @@ import 'package:minstapp/pages/carnet/cardPhoto.dart';
 import 'package:minstapp/pages/horario/horarioPage.dart';
 import 'package:minstapp/pages/login/loginApp.dart';
 import 'package:minstapp/pages/menu/menu.dart';
-import 'package:minstapp/pages/notificaciones/Notificaciones.dart';
+import 'package:minstapp/pages/notas/notasPage.dart';
+import 'package:minstapp/pages/notificaciones/notificaciones.dart';
 
 class DrawerNav extends StatefulWidget {
   const DrawerNav({super.key});
@@ -153,7 +154,7 @@ class _DrawerNavState extends State<DrawerNav> {
                       setState(() => _selectedIndex = 3);
                       Navigator.push(
                         context,
-                        CupertinoPageRoute(builder: (context) => const CardPhotoPage()),
+                        CupertinoPageRoute(builder: (context) => const Notaspage()),
                       ); // Marca seleccionado
                     },
                   ),

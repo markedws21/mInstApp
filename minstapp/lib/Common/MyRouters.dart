@@ -5,7 +5,7 @@ import 'package:minstapp/pages/SplashScreen.dart';
 import 'package:minstapp/pages/login/authApp.dart';
 import 'package:minstapp/pages/login/loginApp.dart';
 import 'package:minstapp/pages/menu/menu.dart';
-import 'package:minstapp/pages/notificaciones/Notificaciones.dart';
+import 'package:minstapp/pages/notificaciones/notificaciones.dart';
 
 // ignore: constant_identifier_names
 const String ROUTE_PREVIEW = '/preview';

@@ -14,10 +14,10 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: _onWillPop,
+      onWillPop: () async => false,
       child: DefaultScaffold(
         title: 'INICIO',
-        body: SingleChildScrollView (
+        body: Flexible (
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -103,10 +103,10 @@ class MenuPage extends StatelessWidget {
                         children: [
                           Text(
                             "DESARROLLO\nPROFESIONAL I",
-                            style: GoogleFonts.poppins(fontSize: 17, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),
+                            style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),
                           ),
                           Text("E-103 - T5DN",
-                            style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),),
+                            style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),),
                         ],
                       ),
                       const SizedBox(width: 30),
@@ -114,7 +114,7 @@ class MenuPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("DOCENTE:\nESPINOZA ROJAS\nMARK EDWARD",
-                          style: GoogleFonts.poppins(fontSize: 17, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),),
+                          style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold,color:  const Color(0xFF023657)),),
                         ],
                       ),
                     ],
@@ -180,10 +180,6 @@ class MenuPage extends StatelessWidget {
         )
       ),
     );
-  }
-
-  Future<bool> _onWillPop() {
-    return Future.value(false);
   }
 }
 

@@ -174,7 +174,7 @@ class AuthPage extends StatelessWidget {
       context: context,
       barrierDismissible : false,
       builder: (BuildContext context) {
-        return CupertinoAlertDialog(
+        return AlertDialog(
           title: const Text("Confirmación"),
           content: const Text("La contraseña ha sido cambiada exitosamente."),
           actions: [
