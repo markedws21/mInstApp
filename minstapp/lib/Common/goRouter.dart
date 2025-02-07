@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:go_router/go_router.dart';
-import 'package:minstapp/Pages/SplashScreen.dart';
+import 'package:minstapp/Pages/splash_screen.dart';
 import 'package:minstapp/Pages/Calendario/calendario_page.dart';
 import 'package:minstapp/Pages/Carnet/cardPhoto.dart';
 import 'package:minstapp/Pages/Horario/horario_page.dart';
@@ -11,7 +11,7 @@ import 'package:minstapp/Pages/Notas/notasPage.dart';
 import 'package:minstapp/Pages/Notificaciones/notificaciones.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/preview',
   routes: <RouteBase>[
     GoRoute(
       name: '/preview',

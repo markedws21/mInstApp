@@ -10,13 +10,13 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/fond.jpg"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Color(0xFF023657),
-              BlendMode.darken,
+              const Color(0xFF023657).withOpacity(0.9),  
+              BlendMode.darken, 
             ),
           ),
         ),
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 30),
                   
                   // Campos de texto
-                  _buildTextField("Usuario"),
+                  _buildTextField("Usuario",),
                   const SizedBox(height: 15),
                   _buildTextField("Contraseña", obscureText: true),
                   
