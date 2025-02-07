@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import 'package:minstapp/pages/calendario/calendarPage.dart';
 import 'package:minstapp/pages/carnet/cardPhoto.dart';
-import 'package:minstapp/pages/horario/horarioPage.dart';
-import 'package:minstapp/pages/login/loginApp.dart';
+import 'package:minstapp/pages/horario/horario_page.dart';
 import 'package:minstapp/pages/menu/menu.dart';
 import 'package:minstapp/pages/notas/notasPage.dart';
 import 'package:minstapp/pages/notificaciones/notificaciones.dart';
@@ -17,8 +16,7 @@ class DrawerNav extends StatefulWidget {
 }
 
 class _DrawerNavState extends State<DrawerNav> {
-  // Índice para rastrear el ítem seleccionado
-  int _selectedIndex = -1; // Ninguno seleccionado inicialmente
+  int _selectedIndex = -1; // Índice de selección inicial
 
   @override
   Widget build(BuildContext context) {
@@ -28,193 +26,73 @@ class _DrawerNavState extends State<DrawerNav> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: const EdgeInsets.only(top: 50, bottom: 1, left: 16, right: 16),
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Contenedor con el icono alineado a la izquierda
-                const Icon(
-                  Icons.library_books, // Aquí puedes cambiar el icono
-                  size: 30,
-                  color: Colors.white,
-                ),
-                // Contenedor con el icono alineado a la derecha
-                IconButton(
-                  onPressed: (){
-                    Navigator.pop(context); // Cierra el Drawer
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 30,
-                  )
-                )
-              ],
-            ),
-            ),
             // Encabezado
-            Container(
-              padding: const EdgeInsets.only(top: 10, bottom: 16, left: 16, right: 16),
-              child: Row(
-                children: [
-                  const Icon(Icons.person, size: 50, color: Colors.white),
-                  const SizedBox(width: 16),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "MARK EDWARD",
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            letterSpacing: 1,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          "ESPINOZA ROJAS",
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            letterSpacing: 1,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          "i20202159@cibertec.edu.pe",
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.white,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(color: Colors.white, thickness: 4),
-            // OPCIONES MENU
+            _buildHeader(),
+            _buildHeader2(),
+            const Divider(color: Colors.white, thickness: 2),
+
+            // Opciones del menú como botones
             Expanded(
-              child: ListView(
-                children: [
-                  _buildMenuItem(
-                    context,
-                    index: 0,
-                    icon: Icons.home,
-                    text: "INICIO",
-                    onTap: () {
-                      setState(() => _selectedIndex = 0);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => MenuPage()),
-                      );
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 1,
-                    icon: Icons.badge,
-                    text: "MI CARNET",
-                    onTap: () {
-                      setState(() => _selectedIndex = 1);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => const CardPhotoPage()),
-                      ); // Marca seleccionado
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 2,
-                    icon: Icons.schedule,
-                    text: "HORARIO",
-                    onTap: () {
-                      setState(() => _selectedIndex = 2);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => const HorarioPage()),
-                      ); // Marca seleccionado
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 3,
-                    icon: Icons.check_circle,
-                    text: "NOTAS",
-                    onTap: () {
-                      setState(() => _selectedIndex = 3);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => const Notaspage()),
-                      ); // Marca seleccionado
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 4,
-                    icon: Icons.calendar_today,
-                    text: "CALENDARIO",
-                    onTap: () {
-                      setState(() => _selectedIndex = 4);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => CalendarPage()),
-                      );
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 5,
-                    icon: Icons.notifications,
-                    text: "NOTIFICACIONES",
-                    onTap: () {
-                      setState(() => _selectedIndex = 5);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => const NotificacionesPage()),
-                      );
-                    },
-                  ),
-                  _buildMenuItem(
-                    context,
-                    index: 6,
-                    icon: Icons.people,
-                    text: "CORREO",
-                    onTap: () {
-                      setState(() => _selectedIndex = 6);
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(builder: (context) => const CardPhotoPage()),
-                      ); // Marca seleccionado
-                    },
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildMenuButton(
+                      index: 0,
+                      icon: Icons.home,
+                      text: "INICIO",
+                      onTap: () => context.go('/menu'),
+                    ),
+                    _buildMenuButton(
+                      index: 1,
+                      icon: Icons.badge,
+                      text: "MI CARNET",
+                      onTap: () => context.go('/card'),
+                    ),
+                    _buildMenuButton(
+                      index: 2,
+                      icon: Icons.schedule,
+                      text: "HORARIO",
+                      onTap: () => context.go('/horario'),
+                    ),
+                    _buildMenuButton(
+                      index: 3,
+                      icon: Icons.check_circle,
+                      text: "NOTAS",
+                      onTap: () => context.go('/notas'),
+                    ),
+                    _buildMenuButton(
+                      index: 4,
+                      icon: Icons.calendar_today,
+                      text: "CALENDARIO",
+                      onTap: () => context.go('/calendario'),
+                    ),
+                    _buildMenuButton(
+                      index: 5,
+                      icon: Icons.notifications,
+                      text: "NOTIFICACIONES",
+                      onTap: () => context.go('/notificaciones'),
+                    ),
+                    _buildMenuButton(
+                      index: 6,
+                      icon: Icons.people,
+                      text: "CORREO",
+                      onTap: () => context.go('/correo'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            // Cerrar sesión
-            _buildMenuItem(
-              context,
+
+            // Botón de cerrar sesión
+            const Divider(color: Colors.white, thickness: 2),
+            _buildMenuButton(
               index: 7,
               icon: Icons.power_settings_new,
               text: "CERRAR SESION",
-              isLogout: true,
               onTap: () {
-                setState(() => _selectedIndex = 7);
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  CupertinoPageRoute(builder: (context) => const LoginPage()),
-                  ModalRoute.withName('/'),
-                ); // Marca seleccionado
+                context.go('/login');
               },
+              isLogout: true,
             ),
           ],
         ),
@@ -222,37 +100,130 @@ class _DrawerNavState extends State<DrawerNav> {
     );
   }
 
-  // Método para construir cada ítem del menú
-  Widget _buildMenuItem(
-    BuildContext context, {
+  /// 📌 **Encabezado del Drawer**
+  Widget _buildHeader() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          const Icon(
+            Icons.library_books,
+            size: 30,
+            color: Colors.white,
+          ),
+          IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 30,
+          )
+          )
+        ]
+      ),
+    );
+  }
+
+  Widget _buildHeader2() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        children: [
+          const Icon(Icons.person, size: 50, color: Colors.white),
+          const SizedBox(width: 16),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "MARK EDWARD",
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  "ESPINOZA ROJAS",
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  "i20202159@cibertec.edu.pe",
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    color: Colors.white70,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// 📌 **Botón de Menú con Cambio de Color**
+  Widget _buildMenuButton({
     required int index,
     required IconData icon,
     required String text,
+    required VoidCallback onTap,
     bool isLogout = false,
-    VoidCallback? onTap,
   }) {
-    return InkWell(
-      onTap: onTap,
-      onLongPress: () {
-        setState(() => _selectedIndex = index); // Marca seleccionado al mantener presionado
-      },
-      child: Container(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        color: _selectedIndex == index
-            ? const Color(0xFF3CB371) // Color verde para el ítem seleccionado
-            : Colors.transparent,
-        child: ListTile(
-          leading: Icon(icon, color: Colors.white),
-          title: Text(
-            text,
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      child: TextButton(
+        onPressed: () {
+          setState(() => _selectedIndex = index);
+          onTap();
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: _selectedIndex == index
+              ? (isLogout ? Colors.redAccent : const Color(0xFF3CB371))
+              : Colors.transparent,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
           ),
         ),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                text,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  /// 📌 **Navegación a otra página**
+  void _navigateToPage(Widget page, int index) {
+    setState(() => _selectedIndex = index);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => page),
     );
   }
 }

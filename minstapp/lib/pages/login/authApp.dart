@@ -1,10 +1,9 @@
 // ignore_for_file: file_names
 
 //import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minstapp/Common/MyRouters.dart';
+import 'package:minstapp/pages/login/login_app.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -21,11 +20,11 @@ class AuthPage extends StatelessWidget {
         body: Container(
         decoration:  BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage("assets/images/fond.jpg"), // URL de la imagen
-            fit: BoxFit.cover,                                // Ajusta la imagen al tamaño del contenedor   
+            image: const AssetImage("assets/images/fond.jpg"), 
+            fit: BoxFit.cover,                            
             colorFilter: ColorFilter.mode(
-              const Color(0xFF023657).withOpacity(0.9),   // Aumenta la opacidad para hacer la imagen menos visible
-              BlendMode.darken, // O usa BlendMode.overlay para un efecto más sutil
+              const Color(0xFF023657).withOpacity(0.9),  
+              BlendMode.darken, 
             ),
           ),
         ),
@@ -136,8 +135,14 @@ class AuthPage extends StatelessWidget {
                   child: SizedBox(
                   width: double.infinity, // Establece el ancho deseado aquí
                   child: ElevatedButton(
-                    onPressed: () {
-                                           showConfirmationDialog(context);
+                    onPressed: () async {
+                    showConfirmationDialog(context);
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(), // La página de destino
+                      ),
+                    );
                     //Navigator.pushNamed(context, ROUTE_LOGIN);
                     },
                     style: ElevatedButton.styleFrom(
@@ -180,12 +185,7 @@ class AuthPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Cerrar el diálogo
-                Navigator.pushNamedAndRemoveUntil(
-                  context, 
-                  ROUTE_LOGIN, 
-                  (Route<dynamic> route) => false,
-                ); // Redirigir al login
+                Navigator.of(context).pop(); // Cierra el dialog
               },
               child: const Text("Ir a Login"),
             ),
