@@ -8,7 +8,7 @@ class CardPhotoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: _onWillPop, // Evitar que se pueda retroceder
+      onWillPop: () async => false,
       child: DefaultScaffold(
         title: 'MI CARNET',
         body: Center(
@@ -139,9 +139,5 @@ class CardPhotoPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<bool> _onWillPop() {
-    return Future.value(false); // Prevenir el retroceso
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
-import 'package:minstapp/pages/calendario/calendarPage.dart';
-import 'package:minstapp/pages/carnet/cardPhoto.dart';
-import 'package:minstapp/pages/horario/horario_page.dart';
-import 'package:minstapp/pages/menu/menu.dart';
-import 'package:minstapp/pages/notas/notasPage.dart';
-import 'package:minstapp/pages/notificaciones/notificaciones.dart';
+import 'package:minstapp/Pages/Calendario/calendario_page.dart';
+import 'package:minstapp/Pages/Carnet/cardPhoto.dart';
+import 'package:minstapp/Pages/Horario/horario_page.dart';
+import 'package:minstapp/Pages/Menu/menu.dart';
+import 'package:minstapp/Pages/Notas/notasPage.dart';
+import 'package:minstapp/Pages/Notificaciones/notificaciones.dart';
 
 class DrawerNav extends StatefulWidget {
   const DrawerNav({super.key});

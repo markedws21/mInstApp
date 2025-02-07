@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   google_fonts: ^6.2.1
   cupertino_icons: ^1.0.8
   carousel_slider: ^5.0.0

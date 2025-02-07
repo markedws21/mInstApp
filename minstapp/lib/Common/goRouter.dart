@@ -1,14 +1,14 @@
 // ignore_for_file: file_names
 import 'package:go_router/go_router.dart';
-import 'package:minstapp/pages/SplashScreen.dart';
-import 'package:minstapp/pages/calendario/calendarPage.dart';
-import 'package:minstapp/pages/carnet/cardPhoto.dart';
-import 'package:minstapp/pages/horario/horario_page.dart';
-import 'package:minstapp/pages/login/authApp.dart';
-import 'package:minstapp/pages/login/login_app.dart';
-import 'package:minstapp/pages/menu/menu.dart';
-import 'package:minstapp/pages/notas/notasPage.dart';
-import 'package:minstapp/pages/notificaciones/notificaciones.dart';
+import 'package:minstapp/Pages/SplashScreen.dart';
+import 'package:minstapp/Pages/Calendario/calendario_page.dart';
+import 'package:minstapp/Pages/Carnet/cardPhoto.dart';
+import 'package:minstapp/Pages/Horario/horario_page.dart';
+import 'package:minstapp/Pages/Login/authApp.dart';
+import 'package:minstapp/Pages/Login/login_app.dart';
+import 'package:minstapp/Pages/Menu/menu.dart';
+import 'package:minstapp/Pages/Notas/notasPage.dart';
+import 'package:minstapp/Pages/Notificaciones/notificaciones.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/login',

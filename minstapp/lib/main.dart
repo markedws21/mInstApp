@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minstapp/Common/goRouter.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -20,6 +21,14 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       key: scaffoldKey,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('es', 'ES'),
+      ],
       routerConfig: router,
     );
   }
