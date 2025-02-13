@@ -17,143 +17,141 @@ class MenuPage extends StatelessWidget {
       onWillPop: () async => false,
       child: DefaultScaffold(
         title: 'INICIO',
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Encabezado con imagen
-              Stack(
-                children: [
-                  Image.asset(
-                    "assets/images/cib.jpg",
-                    width: double.infinity,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
-                  const Positioned(
-                    left: 16,
-                    bottom: 16,
-                    child: Text(
-                      "MinstApp",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Encabezado con imagen
+            Stack(
+              children: [
+                Image.asset(
+                  "assets/images/cib.jpg",
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+                const Positioned(
+                  left: 16,
+                  bottom: 16,
+                  child: Text(
+                    "MinstApp",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ],
-              ),
-
-              // Sección Recientes
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "RECIENTES",
-                  style: GoogleFonts.poppins(
-                    color: const Color(0xFF023657),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                ),
+              ],
+            ),
+        
+            // Sección Recientes
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "RECIENTES",
+                style: GoogleFonts.poppins(
+                  color: const Color(0xFF023657),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NotificacionesPage(),
-                        ),
-                      );
-                    },
-                    child: Text("Notificaciones"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NotificacionesPage(),
-                        ),
-                      );
-                    },
-                    child: Text("Recientes"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NotificacionesPage(),
-                        ),
-                      );
-                    },
-                    child: Text("Extras"),
-                  ),
-                ],
-              ),
-
-              // Sección Próxima Clase
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "PRÓXIMA CLASE",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: const Color(0xFF023657),
-                    fontWeight: FontWeight.bold,
-                  ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotificacionesPage(),
+                      ),
+                    );
+                  },
+                  child: Text("Notificaciones"),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotificacionesPage(),
+                      ),
+                    );
+                  },
+                  child: Text("Recientes"),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotificacionesPage(),
+                      ),
+                    );
+                  },
+                  child: Text("Extras"),
+                ),
+              ],
+            ),
+        
+            // Sección Próxima Clase
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "PRÓXIMA CLASE",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: const Color(0xFF023657),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              _buildNextClassSection(),
-
-              // Sección Noticias
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 16, bottom: 10, right: 16, left: 16),
-                child: Text(
-                  "NOTICIAS",
-                  style: GoogleFonts.poppins(
-                    color: const Color(0xFF023657),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+            ),
+            _buildNextClassSection(),
+        
+            // Sección Noticias
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 16, bottom: 10, right: 16, left: 16),
+              child: Text(
+                "NOTICIAS",
+                style: GoogleFonts.poppins(
+                  color: const Color(0xFF023657),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 6, bottom: 10, right: 16, left: 16),
-                child: CarouselSlider(
-                  items: images.map((e) => SizedBox(
-                        child: Center(
-                          child: Image.asset(
-                            e,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 6, bottom: 10, right: 16, left: 16),
+              child: CarouselSlider(
+                items: images.map((e) => SizedBox(
+                      child: Center(
+                        child: Image.asset(
+                          e,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
                         ),
-                      )).toList(),
-                  options: CarouselOptions(
-                    initialPage: 0,
-                    autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 4),
-                    autoPlayAnimationDuration:
-                        const Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.easeInOut,
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.1,
-                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
-                    height: 100,
-                    scrollDirection: Axis.horizontal,
-                    pageSnapping: true,
-                  ),
+                      ),
+                    )).toList(),
+                options: CarouselOptions(
+                  initialPage: 0,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 4),
+                  autoPlayAnimationDuration:
+                      const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.easeInOut,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.1,
+                  enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                  height: 100,
+                  scrollDirection: Axis.horizontal,
+                  pageSnapping: true,
                 ),
-              ),            
-            ],
-          ),
+              ),
+            ),            
+          ],
         ),
       ),
     );

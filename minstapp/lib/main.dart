@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minstapp/Common/goRouter.dart';
+import 'package:minstapp/Common/go_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();

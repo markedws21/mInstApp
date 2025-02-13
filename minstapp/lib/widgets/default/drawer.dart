@@ -10,22 +10,21 @@ class DrawerNav extends StatefulWidget {
 }
 
 class _DrawerNavState extends State<DrawerNav> {
-  int _selectedIndex = -1; // Índice de selección inicial
+  int _selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color(0xFF023657), // Fondo azul oscuro
+        color: const Color(0xFF023657),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Encabezado
             _buildHeader(),
             _buildHeader2(),
-            const Divider(color: Colors.white, thickness: 2),
-
-            // Opciones del menú como botones
+            const SizedBox(height: 30),
+            // Opciones del menú
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -76,9 +75,7 @@ class _DrawerNavState extends State<DrawerNav> {
                 ),
               ),
             ),
-
             // Botón de cerrar sesión
-            const Divider(color: Colors.white, thickness: 2),
             _buildMenuButton(
               index: 7,
               icon: Icons.power_settings_new,
@@ -120,10 +117,38 @@ class _DrawerNavState extends State<DrawerNav> {
       ),
     );
   }
-
+ 
   Widget _buildHeader2() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Icon(Icons.person, size: 80, color: Colors.white,),
+          const SizedBox(height: 10),
+          Text(
+            "MARK EDWARD",
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 1),
+          Text(
+            "ESPINOZA ROJAS",
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ]
+      ),
+       /*
       child: Row(
         children: [
           const Icon(Icons.person, size: 50, color: Colors.white),
@@ -165,6 +190,7 @@ class _DrawerNavState extends State<DrawerNav> {
           ),
         ],
       ),
+      */
     );
   }
 
@@ -175,7 +201,8 @@ class _DrawerNavState extends State<DrawerNav> {
     required String text,
     required VoidCallback onTap,
     bool isLogout = false,
-  }) {
+    }
+  ){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: TextButton(
@@ -209,15 +236,6 @@ class _DrawerNavState extends State<DrawerNav> {
           ],
         ),
       ),
-    );
-  }
-
-  /// 📌 **Navegación a otra página**
-  void _navigateToPage(Widget page, int index) {
-    setState(() => _selectedIndex = index);
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => page),
     );
   }
 }

@@ -1,8 +1,8 @@
-// ignore_for_file: file_names
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:minstapp/Pages/Carnet/cardPhoto_page.dart';
 import 'package:minstapp/Pages/splash_screen.dart';
 import 'package:minstapp/Pages/Calendario/calendario_page.dart';
-import 'package:minstapp/Pages/Carnet/cardPhoto.dart';
 import 'package:minstapp/Pages/Horario/horario_page.dart';
 import 'package:minstapp/Pages/Login/authApp.dart';
 import 'package:minstapp/Pages/Login/login_app.dart';
@@ -23,16 +23,18 @@ final GoRouter router = GoRouter(
     GoRoute(
       name: '/login',
       path: '/login',
-      builder: (context,state) {
-        return const LoginPage();
-      }
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const LoginPage(),
+      ),
     ),
     GoRoute(
       name: '/menu',
       path: '/menu',
-      builder: (context,state) {
-        return  MenuPage();
-      }
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: MenuPage(),
+      ),
     ),
     GoRoute(
       name: '/auth',

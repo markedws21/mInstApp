@@ -2,48 +2,70 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  LoginPageState createState() => LoginPageState();
+}
+class LoginPageState extends State<LoginPage> {
+  bool _isImageLoaded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(const AssetImage("assets/images/fond.jpg"), context).then((_) {
+      setState(() {
+        _isImageLoaded = true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/fond.jpg"),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              const Color(0xFF023657).withOpacity(0.9),  
-              BlendMode.darken, 
+      body: Stack(
+        children: [
+          // Fondo de color sólido
+          Container(
+            color: const Color(0xFF023657),
+          ),
+          // Imagen con animación de desvanecimiento
+          AnimatedOpacity(
+            duration: const Duration(seconds: 1), // Duración del fade
+            opacity: _isImageLoaded ? 1.0 : 0.0, // Aparece suavemente
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: const AssetImage("assets/images/fond.jpg"),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    const Color(0xFF023657).withOpacity(0.9),
+                    BlendMode.darken,
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-        child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
+          // Contenido de la pantalla
+          SafeArea(
+            child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Icon(Icons.library_books, size: 150, color: Colors.white),
                   _buildTitle("mInst", 70, FontWeight.bold),
                   const SizedBox(height: 20),
                   _buildTitle("Iniciar Sesión", 25, FontWeight.bold),
                   const SizedBox(height: 30),
-                  
-                  // Campos de texto
-                  _buildTextField("Usuario",),
+                  _buildTextField("Usuario"),
                   const SizedBox(height: 15),
                   _buildTextField("Contraseña", obscureText: true),
-                  
                   const SizedBox(height: 20),
-                  
-                  // Botón de login
                   _buildButton("Ingresar", () => context.go('/menu')),
-
                   const SizedBox(height: 15),
-                  
-                  // Olvidaste tu contraseña
                   InkWell(
                     onTap: () => context.push('/auth'),
                     child: Padding(
@@ -62,11 +84,11 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
-
+  
   // Widget reutilizable para título
   Widget _buildTitle(String text, double size, FontWeight weight) {
     return Text(
