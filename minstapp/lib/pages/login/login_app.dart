@@ -27,14 +27,12 @@ class LoginPageState extends State<LoginPage> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          // Fondo de color sólido
           Container(
             color: const Color(0xFF023657),
           ),
-          // Imagen con animación de desvanecimiento
           AnimatedOpacity(
-            duration: const Duration(seconds: 1), // Duración del fade
-            opacity: _isImageLoaded ? 1.0 : 0.0, // Aparece suavemente
+            duration: const Duration(seconds: 1),
+            opacity: _isImageLoaded ? 1.0 : 0.0,
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -67,7 +65,7 @@ class LoginPageState extends State<LoginPage> {
                   _buildButton("Ingresar", () => context.go('/menu')),
                   const SizedBox(height: 15),
                   InkWell(
-                    onTap: () => context.push('/auth'),
+                    onTap: () => context.go('/auth'),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(

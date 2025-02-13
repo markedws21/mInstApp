@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:minstapp/Pages/Carnet/cardPhoto_page.dart';
+import 'package:minstapp/Pages/Carnet/card_photopage.dart';
 import 'package:minstapp/Pages/splash_screen.dart';
 import 'package:minstapp/Pages/Calendario/calendario_page.dart';
 import 'package:minstapp/Pages/Horario/horario_page.dart';
