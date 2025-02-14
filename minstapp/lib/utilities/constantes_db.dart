@@ -1,0 +1,1 @@
+const CONEXION ="mongodb+srv://markmongodb:<mongodbb1234>@bdmobile.ckh3f.mongodb.net/?retryWrites=true&w=majority&appName=BDMobile";

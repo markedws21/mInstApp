@@ -6,11 +6,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 void main() {
-  // 🔹 Bloquea la orientación en vertical antes de ejecutar la app
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,  // Solo permite modo vertical normal
-    DeviceOrientation.portraitDown, // (Opcional) Permitir también invertido
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
   ]).then((_) {
     runApp(const MyApp());
   });
