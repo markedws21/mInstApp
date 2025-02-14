@@ -106,13 +106,23 @@ class HorarioPageState extends State<HorarioPage> {
               ],
             ),
             const SizedBox(height: 4),
-            Text(
-              curso.seccion,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Profesor: ${curso.profesor}",
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Sección: ${curso.seccion}",
+                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
             const SizedBox(height: 4),
             Text(
-              curso.horario,
+              "Hora: ${curso.horario}",
               style: const TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],

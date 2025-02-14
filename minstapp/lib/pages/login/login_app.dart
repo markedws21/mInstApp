@@ -54,7 +54,7 @@ class LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Icon(Icons.library_books, size: 150, color: Colors.white),
-                  _buildTitle("mInst", 70, FontWeight.bold),
+                  _buildTitle("mInst", 60, FontWeight.bold),
                   const SizedBox(height: 20),
                   _buildTitle("Iniciar Sesión", 25, FontWeight.bold),
                   const SizedBox(height: 30),
@@ -102,7 +102,7 @@ class LoginPageState extends State<LoginPage> {
   // Widget reutilizable para los campos de texto
   Widget _buildTextField(String hint, {bool obscureText = false}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal:30.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -125,13 +125,13 @@ class LoginPageState extends State<LoginPage> {
   // Widget reutilizable para botones
   Widget _buildButton(String text, VoidCallback onPressed) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF023657),
+            backgroundColor: const Color.fromARGB(255, 42, 199, 27),
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),

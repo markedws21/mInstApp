@@ -168,7 +168,7 @@ class MenuPageState extends State<MenuPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "DESARROLLO PROFESIONAL I",
+                "SEGURIDAD DE APLICACIONES II",
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -180,7 +180,7 @@ class MenuPageState extends State<MenuPage> {
                 children: [
                   Icon(Icons.access_time, color: Color(0xFF023657)),
                   SizedBox(width: 8),
-                  Text("Lunes - 11:00 AM",
+                  Text("LUNES - 11:00 AM",
                       style: GoogleFonts.poppins(fontSize: 12)),
                 ],
               ),
@@ -189,7 +189,7 @@ class MenuPageState extends State<MenuPage> {
                 children: [
                   Icon(Icons.class_, color: Color(0xFF023657)),
                   SizedBox(width: 8),
-                  Text("Aula E-103 - T5DN",
+                  Text("AULA E-103 - T5DN",
                       style: GoogleFonts.poppins(fontSize: 12)),
                 ],
               ),
@@ -198,7 +198,7 @@ class MenuPageState extends State<MenuPage> {
                 children: [
                   Icon(Icons.person, color: Color(0xFF023657)),
                   SizedBox(width: 8),
-                  Text("Espinoza Rojas Mark Edward",
+                  Text("SANTIVAÑEZ JUAN JOSE",
                       style: GoogleFonts.poppins(fontSize: 12)),
                 ],
               ),
