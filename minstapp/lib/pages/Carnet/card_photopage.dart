@@ -58,18 +58,12 @@ class CardPhotoPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 // Imagen del estudiante con borde
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 3),
-                  ),
-                  child: ClipOval(
-                    child: Image.asset(
-                      "assets/images/foto_carnet.jpg",
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                    ),
+                ClipRect(
+                  child: Image.asset(
+                    "assets/images/foto_carnet.jpg",
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 const SizedBox(height: 12),

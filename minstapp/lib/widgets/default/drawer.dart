@@ -16,6 +16,7 @@ class _DrawerNavState extends State<DrawerNav> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
+        padding: const EdgeInsets.all(10),
         color: const Color(0xFF023657),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
